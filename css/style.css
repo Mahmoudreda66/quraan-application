@@ -195,6 +195,11 @@ button,
     }
 }
 
+.page .sidebar .main_list{
+    height: 100%;
+    overflow: scroll;
+}
+
 .bar-small-full .sidebar-full .main_list,
 .page .sidebar .main_list {
     margin-top: 40px;
@@ -355,13 +360,9 @@ button,
     margin-left: auto;
 }
 
-.page .content .main_content .random_aya span.sura_name{
+.page .content .main_content .random_aya span.sura_name {}
 
-}
-
-.page .content .main_content .random_aya span.number_aya{
-
-}
+.page .content .main_content .random_aya span.number_aya {}
 
 .page .content .nav_content .elements .name_page {
     height: 30px;
