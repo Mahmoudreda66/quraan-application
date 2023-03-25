@@ -1,0 +1,34 @@
+@font-face{
+    font-family: lateef-extra-light;
+    src: url(../Lateef_Fonts/Lateef-ExtraLight.ttf);
+}
+
+@font-face{
+    font-family: lateef-light;
+    src: url(../Lateef_Fonts/Lateef-Light.ttf);
+}
+
+@font-face{
+    font-family: lateef-regular;
+    src: url(../Lateef_Fonts/Lateef-Regular.ttf);
+}
+
+@font-face{
+    font-family: lateef-medium;
+    src: url(../Lateef_Fonts/Lateef-Medium.ttf);
+}
+
+@font-face{
+    font-family: lateef-semi-bold;
+    src: url(../Lateef_Fonts/Lateef-SemiBold.ttf);
+}
+
+@font-face{
+    font-family: lateef-bold;
+    src: url(../Lateef_Fonts/Lateef-Bold.ttf);
+}
+
+@font-face{
+    font-family: lateef-extra-bold;
+    src: url(../Lateef_Fonts/Lateef-ExtraBold.ttf);
+}

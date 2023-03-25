@@ -1,0 +1,70 @@
+/* start dark_light mode */
+
+.content_mode {
+    margin-left: 30px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    /* background: lightblue; */
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn-dark-mode {
+    margin-left: 30px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: rgb(255, 204, 0);
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0 20px rgb(255 239 196 / 30%);
+    box-shadow: 0 0 0 10px rgba(255, 239, 196, 0.696);
+    cursor: pointer;
+    -webkit-transition: inherit;
+    -o-transition: inherit;
+    transition: inherit;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#dark {
+    margin-left: 38px;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#dark:checked~.content_mode {
+    /* background: #00163b; */
+}
+
+#dark:checked~.content_mode .btn-dark-mode {
+    /* background: #00163b; */
+    -webkit-box-shadow:
+        0 0 0 0px rgb(255 239 196 / 0%),
+        inset 15px -10px 0 lightblue;
+    box-shadow:
+        0 0 0 0px rgb(255 239 196 / 0%),
+        inset 10px -10px 0 lightblue;
+    border: none;
+}
+
+/* UTILITARIOS */
+.d-none {
+    display: none;
+}
+
+/* End dark_light mode */
