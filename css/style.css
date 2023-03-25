@@ -52,11 +52,6 @@ ul {
     margin: 0;
 }
 
-button,
-.btn {
-    border: none;
-}
-
 /* Start burger toggle */
 
 .toggle {
@@ -195,9 +190,11 @@ button,
     }
 }
 
-.page .sidebar .main_list{
-    height: 100%;
+.page .sidebar .main_list {
+    height: 89%;
     overflow: scroll;
+    direction: rtl;
+
 }
 
 .bar-small-full .sidebar-full .main_list,
@@ -209,6 +206,7 @@ button,
 .page .sidebar .main_list ul {
     display: flex;
     flex-direction: column;
+    direction: ltr;
 }
 
 .bar-small-full .sidebar-full .main_list ul li,
@@ -383,9 +381,11 @@ button,
 
 .page .content .nav_content .elements .content_elements .social_media {}
 
+
+
 /* start social media */
 
-.content .elements .content_elements .social_media {
+/* .content .elements .content_elements .social_media {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -482,6 +482,129 @@ button,
 
 .content .elements .content_elements .social_media a:nth-of-type(6):before {
     content: '\f1cb';
-}
+} */
 
 /* End social media */
+
+
+/* Start continue_to_user */
+.page .content .main_content .continue_read_to_user {
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 30px;
+    border-radius: 5px;
+    margin: auto;
+    width: 40%;
+    padding: 100px;
+    border: 3px solid #e6e6e6;
+    box-shadow: -7px 7px 10px #272727;
+}
+
+.page .content .main_content .continue_read_to_user .continue_read_link {
+    font-family: lateef-medium;
+    font-size: 20px;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}
+
+.page .content .main_content .continue_read_to_user .stop_surah {
+    font-size: 50px;
+    font-family: lateef-bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.page .content .main_content .continue_read_to_user .read_surah {
+    font-size: 20px;
+    font-family: lateef-medium;
+    display: flex;
+    position: absolute;
+    bottom: 0%;
+    left: 30%;
+}
+
+.page .content .main_content .continue_read_to_user .read_surah::before {
+    content: "\f518";
+    position: absolute;
+    left: -35%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 70%;
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 800;
+}
+
+.page .content .main_content .continue_read_to_user .read_next_surah {
+    font-size: 20px;
+    font-family: lateef-medium;
+    position: absolute;
+    bottom: 0%;
+    left: 5%;
+}
+
+.page .content .main_content .continue_read_to_user .read_next_surah::before {
+    content: "\f137";
+    position: absolute;
+    left: -20%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 70%;
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 800;
+}
+
+
+/* End continue_to_user */
+
+/* Start rosary */
+
+.page .content .main_content .rosary {
+    margin-top: 80px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.page .content .main_content .rosary h1 {
+    border-radius: 5px;
+    border: 1px solid #e6e6e6;
+    width: 30%;
+    padding: 30px 15px;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 250%;
+}
+
+.page .content .main_content .rosary .data_Rosary {
+    display: flex;
+    flex-direction: column;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.page .content .main_content .rosary .data_Rosary .rosary_span {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.page .content .main_content .rosary .data_Rosary .btn {
+    font-family: lateef-light;
+    font-size: 40px;
+    border-radius: 100px;
+    padding: 21px 35px;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    color: #000;
+    box-shadow: 0px 0px 10px #272727;
+}
+
+/* End rosary */
