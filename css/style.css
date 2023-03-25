@@ -30,7 +30,7 @@
 
 a {
     text-decoration: none;
-    color: black;
+    color: inherit;
 }
 
 html {
@@ -39,6 +39,11 @@ html {
 
 body {
     background-color: var(--bg_color_body);
+    background-image: url(./../images/image.png);
+    background-size: cover;
+    height: 1000px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 ul {
@@ -167,10 +172,10 @@ button,
 
 .page .sidebar {
     background-color: white;
-    width: 200px;
+    width: 250px;
     height: 100vh;
     padding: 0px 15px;
-    box-shadow: 0px 0px 10px #bababa;
+    box-shadow: 4px 0px 10px #000;
     z-index: 100;
     flex-direction: column;
     position: fixed;
@@ -253,7 +258,6 @@ button,
 }
 
 .logo_h1 {
-    text-shadow: 0px 0px 3px #006470;
     position: relative;
     font-family: bold-font;
     padding: 0px 5px 10px 5px;
@@ -291,7 +295,7 @@ button,
 /* Start Content */
 .page .content .nav_content,
 .page .content {
-    width: calc(100% - 200px);
+    width: calc(100% - 250px);
     margin-right: auto;
 }
 
@@ -338,14 +342,15 @@ button,
 .page .content .main_content .random_aya {
     margin-bottom: 20px;
     display: block;
-    text-align: center;
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 }
 
 .page .content .main_content .random_aya span.random_aya_h2 {
     font-family: lateef-bold;
-    color: #006470;
-    font-size: 300%;
+    color: #fff;
+    font-size: 60px;
+    text-align: center;
     padding-bottom: 15px;
     margin-left: auto;
 }
