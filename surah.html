@@ -97,49 +97,83 @@
             </div>
 
             <div class="main_content">
-                <div class="container">
-
-                    <div class="random_aya" style="width: 90%; margin: auto;">
-                        <span class="random_aya_h2" style="display: block; margin-bottom: 20px;">
-                            <a href="">
-                                قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَى أَنفُسِهِمْ لَا
-                                تَقْنَطُوا مِن رَّحْمَةِ اللَّـهِ إِنَّ اللَّـهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا إِنَّهُ
-                                هُوَ
-                                الْغَفُورُ الرَّحِيمُ
-                            </a>
-                        </span>
-                        <div class="icons" style="color: #fff;">
-                            <span>سورة الزمر</span>
-                            <span> - </span>
-                            <span>الآية: 15</span>
+                <div class="container reading-page">
+                    <div
+                        style="text-align: right; direction: rtl; color: #fff; font-family: cairo; margin-bottom: 10px; display: flex; justify-content: space-between;">
+                        <div>
+                            <span>
+                                <span>سورة الضحى</span>
+                                <span>(Jonas)</span>
+                            </span>
+                            <span>سورة مكية</span>
+                            <span>-</span>
+                            <span>عدد آياتها: <span>191</span> آية</span>
+                            <span>-</span>
+                            <span>ترتيبها: <span>10</span></span>
                         </div>
-                    </div> <!-- random_aya -->
-
-                    <div class="continue_read_to_user stop_surah_name">
-                        <a class="continue_read_link" href="#">تابع القرائة</a>
-                        <a href="#"><span data-stopSurahName="" class="stop_surah">سورة البقرة</span></a>
-                        <a href="#"><span class="read_surah" data-readSurah="">قرائة السورة</span></a>
-                        <a href="#"><span class="read_next_surah" data-readNexrSurah="">قرائة السورة التالية</span></a>
-                    </div> <!-- continue_read_to_user stop_surah_name -->
-
-                    <div class="rosary">
-                        <h1>سُبْحَانَ اللَّهِ وَبِحَمْدِهِ <br> سُبْحَانَ اللَّهِ الْعَظِيمِ</h1>
-                        <div class="data_Rosary">
-                            <span data-rosary="" class="rosary_span">
-                                عدد التسبيحات
-                                <span data-rosary_count="">0</span>
-                            </span> <!-- rosary_span -->
-                            <button class="btn">انقر</button>
-                        </div> <!-- data_Rosary -->
-                    </div> <!-- rosary -->
-
+                        <div>
+                            <a href="javascript:void" onclick="playSurahAudio()"><i class="fas fa-play"
+                                    id="play-icon"></i> الإستماع للسورة</a>
+                        </div>
+                        <audio controls id="surahAudio" hidden
+                            src="https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3">
+                            Your browser does not support the audio tag.
+                        </audio>
+                    </div>
+                    <div class="bg-white p-3 rounded">
+                        <span style="display: block; text-align: center; font-size: 30px;">̨﷽</span> <br>
+                        <p class="reading-box">
+                            <span>
+                                <span>وَالضُّحَى</span>
+                                <span class="ayah_box">
+                                    <span class="ayah_number">۝</span>
+                                </span>
+                            </span>
+                            <span>
+                                <span>وَالضُّحَى</span>
+                                <span class="ayah_box">
+                                    <span class="ayah_number">۝</span>
+                                </span>
+                            </span>
+                            <span>
+                                <span>وَالضُّحَى</span>
+                                <span class="ayah_box">
+                                    <span class="ayah_number">۝</span>
+                                </span>
+                            </span>
+                            <span>
+                                <span>وَالضُّحَى</span>
+                                <span class="ayah_box">
+                                    <span class="ayah_number">۝</span>
+                                </span>
+                            </span>
+                            <span>
+                                <span>وَالضُّحَى</span>
+                                <span class="ayah_box">
+                                    <span class="ayah_number">۝</span>
+                                </span>
+                            </span>
+                            <span>
+                                <span>وَالضُّحَى</span>
+                                <span class="ayah_box">
+                                    <span class="ayah_number">۝</span>
+                                </span>
+                            </span>
+                            <span>
+                                <span>وَالضُّحَى</span>
+                                <span class="ayah_box">
+                                    <span class="ayah_number">۝</span>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
                 </div> <!-- container -->
             </div> <!-- main_content -->
 
         </div> <!-- content -->
 
     </div> <!-- page -->
-
+    <script src="./js/surah.js"></script>
 </body>
 
 </html>

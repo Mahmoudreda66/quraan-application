@@ -608,3 +608,21 @@ ul {
 }
 
 /* End rosary */
+
+.bg-white {
+    background-color: #fff;
+}
+
+.p-3 {
+    padding: 20px;
+}
+
+.rounded {
+    border-radius: 10px;
+}
+
+.reading-box {
+    font-size: 24px;
+    direction: rtl;
+    line-height: 1.5;
+}
