@@ -5,7 +5,7 @@ let surahName = document.getElementById("surah-name");
 let ayaNumber = document.getElementById("aya-number");
 
 // Send GET request using Fetch API
-fetch(`http://api.alquran.cloud/v1/ayah/${randomNumber}`)
+fetch(`http://api.alquran.cloud/v1/ayah/${randomNumber}?fields=text_uthmani`)
   .then((response) => response.json())
   .then((data) => {
     // Get random verse
@@ -16,6 +16,7 @@ fetch(`http://api.alquran.cloud/v1/ayah/${randomNumber}`)
     ayaNumber.innerHTML = `الاية :${varese.numberInSurah}`;
 
     console.log();
+    console.log(data);
     // console.log(verse.)
   })
   .catch((error) => {
