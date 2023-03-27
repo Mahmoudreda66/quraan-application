@@ -16,7 +16,7 @@ function nextSurah(){
     let id =Number(url.get('id'))
     id+=1
     if(id > 114){
-        next_surah.href = `surah.html?id=0`
+        next_surah.href = `surah.html?id=1`
     }
     else{
         next_surah.href = `surah.html?id=${id}`
@@ -26,10 +26,13 @@ function prevSurah(){
     let prev_surah = document.getElementById('prev_surah')
     let id =Number(url.get('id'))
     id -=1
-    if(id >= 0){
+    if(id > 0){
         prev_surah.href = `surah.html?id=${id}`
     }
     else{
-        prev_surah = `surah.html?id=0`
+        prev_surah = `surah.html?id=1`
     }
 }
+const surah = fetch(`https://api.quran.com/api/v4/verses/by_chapter/${url.get('id')}?language=ar&words=true`).then(response => response.json()).then(data => {
+    console.log(data)
+})
