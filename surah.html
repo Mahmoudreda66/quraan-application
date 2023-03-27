@@ -5,119 +5,117 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuranKareem</title>
+    <title>موقع القرآن الكريم </title>
+
     <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="page">
-        <div class="sidebar">
-            <div class="logo">
-                <a href="QuranKareem.htm">
-                    <h1 class="logo_h1">تصفح المصحف</h1>
-                </a>
-            </div> <!-- logo -->
-            <hr>
-            <div class="main_list">
-                <ul>
-                </ul>
-            </div> <!-- main_list -->
-
-        </div> <!-- sidebar -->
-
-        <div class="content">
-            <div style="text-align: center; color: #fff; margin-top: 20px;">
-                <h4 style="font-family: cairo, tajawal;
-                font-size: 30px;
-                margin-bottom: 12px;">القرآن الكريم</h4>
-                <div>
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-whatsapp"></i>
-                    <i class="fab fa-telegram"></i>
+    <div id="main-loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary pt-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">المُصحف الإلكتروني</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.html">
+                                    <i class="fas fa-home"></i> الرئيسية
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#chapters">
+                                    <i class="fas fa-book-quran"></i>
+                                    جميع السور
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#rosary">
+                                    <i class="fas fa-mosque"></i>
+                                    السبحة الإلكترونية
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#progress">
+                                    <i class="fas fa-list-check"></i>
+                                    تابع تقدُمك
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="bg-white p-3 rounded mt-5 text-black">
+                <div class="text-center" style="font-size: 30px;">
+                    ּ﷽
+                </div>
+                <p class="surah-content mt-3 mb-0" style="line-height: 2;">
+                </p>
+                <div class="text-center">
+                    <img src="https://i0.wp.com/pull-courir.com/wzydm/rwR4T4nmnM_oG8rr5ENL_QHaC1.jpg" width="240px">
                 </div>
             </div>
-
-            <div class="main_content">
-                <div class="container reading-page">
-                    <div
-                        style="text-align: right; direction: rtl; color: #fff; font-family: cairo; margin-bottom: 10px; display: flex; justify-content: space-between;">
-                        <div>
-                            <span>
-                                <span>سورة الضحى</span>
-                                <span>(Jonas)</span>
-                            </span>
-                            <span>سورة مكية</span>
-                            <span>-</span>
-                            <span>عدد آياتها: <span>191</span> آية</span>
-                            <span>-</span>
-                            <span>ترتيبها: <span>10</span></span>
-                        </div>
-                        <div>
-                            <a href="javascript:void" onclick="playSurahAudio()"><i class="fas fa-play"
-                                    id="play-icon"></i> الإستماع للسورة</a>
-                        </div>
-                        <audio controls id="surahAudio" hidden
-                            src="https://diviextended.com/wp-content/uploads/2021/10/sound-of-waves-marine-drive-mumbai.mp3">
-                            Your browser does not support the audio tag.
-                        </audio>
+            <div class="mt-3 pb-3">
+                <div class="d-flex" style="justify-content: space-between;">
+                    <div>
+                        <a href="" id='prev_surah'>
+                            <i class="fas fa-arrow-right"></i> السورة السابقة
+                        </a>
                     </div>
-                    <div class="bg-white p-3 rounded">
-                        <span style="display: block; text-align: center; font-size: 30px;">̨﷽</span> <br>
-                        <p class="reading-box">
-                            <span>
-                                <span>وَالضُّحَى</span>
-                                <span class="ayah_box">
-                                    <span class="ayah_number">۝</span>
-                                </span>
-                            </span>
-                            <span>
-                                <span>وَالضُّحَى</span>
-                                <span class="ayah_box">
-                                    <span class="ayah_number">۝</span>
-                                </span>
-                            </span>
-                            <span>
-                                <span>وَالضُّحَى</span>
-                                <span class="ayah_box">
-                                    <span class="ayah_number">۝</span>
-                                </span>
-                            </span>
-                            <span>
-                                <span>وَالضُّحَى</span>
-                                <span class="ayah_box">
-                                    <span class="ayah_number">۝</span>
-                                </span>
-                            </span>
-                            <span>
-                                <span>وَالضُّحَى</span>
-                                <span class="ayah_box">
-                                    <span class="ayah_number">۝</span>
-                                </span>
-                            </span>
-                            <span>
-                                <span>وَالضُّحَى</span>
-                                <span class="ayah_box">
-                                    <span class="ayah_number">۝</span>
-                                </span>
-                            </span>
-                            <span>
-                                <span>وَالضُّحَى</span>
-                                <span class="ayah_box">
-                                    <span class="ayah_number">۝</span>
-                                </span>
-                            </span>
-                        </p>
+                    <div>
+                        <a href="" id='next_surah'>
+                            السورة التالية <i class="fas fa-arrow-left"></i>
+                        </a>
                     </div>
-                </div> <!-- container -->
-            </div> <!-- main_content -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <footer class="text-center bg-dark p-3 text-white">
+        <div>It Project - Quraan Application @ 2023</div>
+        <div class="mt-1">
+            <i class="fab ms-2 fa-facebook"></i>
+            <i class="fab ms-2 fa-whatsapp"></i>
+            <i class="fab fa-telegram"></i>
+        </div>
+    </footer>
 
-        </div> <!-- content -->
-
-    </div> <!-- page -->
+    <script src="./js/main.js"></script>
     <script src="./js/surah.js"></script>
-    <script src="js/mainJS.js"></script>
 </body>
 
 </html>
