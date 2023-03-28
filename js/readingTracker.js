@@ -1,19 +1,15 @@
 let SurahLink = document.getElementById('SurahLink');
-let SurahName = document.getElementById('SurahName');
-let AyaCount = document.getElementById('aya-count');
-let SurahType = document.getElementById('surah-type');
-let SurahOrder = document.getElementById('surah-order');
 let MsgRead = document.getElementById('read-message');
 
 if (localStorage.getItem("Progress")) {
     fetch(`https://api.quran.com/api/v4/chapters/${localStorage.getItem('Progress')}?language=ar`)
         .then(response => response.json())
         .then(data => {
-            SurahName.innerHTML = data.chapter.name_arabic;
-            AyaCount.innerHTML = data.chapter.verses_count;
-            SurahType.innerHTML = data.chapter.revelation_place == "makkah" ? "مكية" : "مدنية";
-            SurahOrder.innerHTML = data.chapter.revelation_order;
-            SurahLink.href = `surah.html?id=${data.chapter.id}`
+            document.getElementById('SurahName').innerHTML = data.chapter.name_arabic;
+            document.getElementById('aya-count').innerHTML = data.chapter.verses_count;
+            document.getElementById('surah-type').innerHTML = data.chapter.revelation_place == "makkah" ? "مكية" : "مدنية";
+            document.getElementById('surah-order').innerHTML = data.chapter.revelation_order;
+            document.getElementById('SurahLink').href = `surah.html?id=${data.chapter.id}`
             document.getElementById('rocket-link').href = `surah.html?id=${data.chapter.id}`
         })
     MsgRead.style.display = "none";
