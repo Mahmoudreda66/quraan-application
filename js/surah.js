@@ -43,3 +43,6 @@ const surah = fetch(`https://api.quran.com/api/v4/verses/by_chapter/${url.get('i
     }
     surah_content.textContent += data.verses[data.verses.length - 1].text_uthmani
 })
+
+
+localStorage.setItem("Progress", url.get('id'));
