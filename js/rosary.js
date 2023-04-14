@@ -5,10 +5,7 @@ function sound_clicks_33() {
     let snd = document.getElementById('sound_click_33')
     snd.play();
 }
-function sound_clicks() {
-    let snd = document.getElementById('sound_click');
-    snd.play();
-}
+
 rosary_counter = localStorage.getItem('old_rosary_count') ?? 0
 document.getElementById('rosary-btn').textContent = rosary_counter
 document.getElementById('rosary-btn').onclick = function () {
@@ -19,10 +16,7 @@ document.getElementById('rosary-btn').onclick = function () {
         x++;
         sound_clicks_33();
     }
-    else {
-        sound_clicks();
-
-    }
+    
     document.getElementById('rosary-btn').textContent = rosary_counter;
     localStorage.setItem('33_click_changer', rosary_counter)
     localStorage.setItem('old_rosary_count', rosary_counter)
