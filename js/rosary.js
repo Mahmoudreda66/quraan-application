@@ -18,7 +18,7 @@ rosaryButton.onclick = function () {
     rosary_counter++;
 
     if (rosary_counter % 33 == 0) {
-        document.getElementById('rosary_counter').textContent = text_changer[interval];
+        document.getElementById('33_click_changer').textContent = text_changer[interval];
         interval++;
         soundClicks33();
     }
