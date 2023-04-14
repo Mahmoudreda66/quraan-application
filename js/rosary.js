@@ -8,11 +8,11 @@ rosaryButton.onmousedown = (e) => e.target.classList.remove('shadow');
 rosaryButton.onmouseup = (e) => e.target.classList.add('shadow');
 
 function soundClicks33() {
-    let sound = document.getElementById('sound_click_33')
+    let sound = document.getElementById("sound_click_33");
     sound.play();
 }
 
-rosaryButton.textContent = rosary_counter
+rosaryButton.textContent = rosary_counter;
 
 rosaryButton.onclick = function () {
     rosary_counter++;
