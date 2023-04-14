@@ -1,6 +1,6 @@
-let ayaTag = document.querySelector(".random_aya_h2");
-let surahName = document.getElementById("surah-name");
-let ayaNumber = document.getElementById("aya-number");
+let ayaTag = document.querySelector(".random_aya_h2"),
+  surahName = document.getElementById("surah-name"),
+  ayaNumber = document.getElementById("aya-number");
 
 fetch(`https://api.quran.com/api/v4/verses/random?language=ar&words=true&fields=text_uthmani`)
   .then((response) => response.json())

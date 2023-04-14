@@ -1,16 +1,4 @@
-let surahAudio = document.getElementById('surahAudio'),
-    playIcon = document.getElementById('play-icon'),
-    url = new URLSearchParams(location.search);
-
-let playSurahAudio = _ => {
-    if (surahAudio.paused) {
-        surahAudio.play();
-        playIcon.classList.replace('fa-play', 'fa-pause');
-    } else {
-        surahAudio.pause();
-        playIcon.classList.replace('fa-pause', 'fa-play');
-    }
-}
+let url = new URLSearchParams(location.search);
 
 (function nextSurah() {
     let next_surah = document.getElementById('next_surah')
@@ -43,6 +31,5 @@ const surah = fetch(`https://api.quran.com/api/v4/verses/by_chapter/${url.get('i
     }
     surah_content.textContent += data.verses[data.verses.length - 1].text_uthmani
 })
-
 
 localStorage.setItem("Progress", url.get('id'));
