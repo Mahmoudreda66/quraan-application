@@ -7,11 +7,6 @@ let rosary_counter = localStorage.getItem('rosary_counter') ?? 0,
 rosaryButton.onmousedown = (e) => e.target.classList.remove('shadow');
 rosaryButton.onmouseup = (e) => e.target.classList.add('shadow');
 
-function soundClicks33() {
-    let sound = document.getElementById("sound_click_33");
-    sound.play();
-}
-
 rosaryButton.textContent = rosary_counter;
 
 rosaryButton.onclick = function () {
@@ -20,7 +15,6 @@ rosaryButton.onclick = function () {
     if (rosary_counter % 33 == 0) {
         document.getElementById('33_click_changer').textContent = text_changer[interval];
         interval++;
-        soundClicks33();
     }
 
     rosaryButton.textContent = rosary_counter;
