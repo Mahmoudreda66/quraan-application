@@ -1,5 +1,18 @@
 let rosary_counter = localStorage.getItem('rosary_counter') ?? 0,
-    text_changer = ['الحمد لله', 'لا إله إلا الله', 'الله أكبر'],
+    text_changer = [
+        {
+            name: 'الحمد لله',
+            sound: './../sounds/rosary/el7amd-llah.mp3'
+        },
+        {
+            name: 'لا إله إلا الله',
+            sound: './../sounds/rosary/la-ellah-ela-allah.mp3'
+        },
+        {
+            name: 'الله أكبر',
+            sound: './../sounds/rosary/allah-akbar.mp3'
+        }
+    ],
     interval = 0,
     rosaryButton = document.getElementById('rosary-btn');
 
@@ -7,13 +20,25 @@ let rosary_counter = localStorage.getItem('rosary_counter') ?? 0,
 rosaryButton.onmousedown = (e) => e.target.classList.remove('shadow');
 rosaryButton.onmouseup = (e) => e.target.classList.add('shadow');
 
+let rosarySound = _ => {
+    let audioEl = new Audio('./../sounds/lclick-13694.mp3');
+    audioEl.play();
+}
+
+let tasabee7Sound = (soundSrc) => {
+    let audioEl = new Audio(soundSrc);
+
+    audioEl.play();
+}
+
 rosaryButton.textContent = rosary_counter;
 
 rosaryButton.onclick = function () {
     rosary_counter++;
 
     if (rosary_counter % 33 == 0) {
-        document.getElementById('33_click_changer').textContent = text_changer[interval];
+        document.getElementById('33_click_changer').textContent = text_changer[interval]['name'];
+        tasabee7Sound(text_changer[interval]['sound']);
         interval++;
     }
 
@@ -22,4 +47,6 @@ rosaryButton.onclick = function () {
 
     if (interval == 3)
         interval = 0
+
+    rosarySound();
 };
