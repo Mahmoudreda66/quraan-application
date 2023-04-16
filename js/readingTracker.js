@@ -1,22 +1,22 @@
-let SurahLink = document.getElementById('SurahLink'),
-    MsgRead = document.getElementById('read-message');
+surahLink = document.getElementById('surahlink'),
+readMsg = document.getElementById('readmessage');
 
 if (localStorage.getItem("Progress")) {
     fetch(`https://api.quran.com/api/v4/chapters/${localStorage.getItem('Progress')}?language=ar`)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('SurahName').textContent = data.chapter.name_arabic;
-            document.getElementById('aya-count').textContent = data.chapter.verses_count;
-            document.getElementById('surah-type').textContent = data.chapter.revelation_place == "makkah" ? "مكية" : "مدنية";
-            document.getElementById('surah-order').textContent = data.chapter.revelation_order;
-            document.getElementById('SurahLink').href = `surah.html?id=${data.chapter.id}`
-            document.getElementById('rocket-link').href = `surah.html?id=${data.chapter.id}`
+            document.getElementById('surahname').textContent = data.chapter.name_arabic;
+            document.getElementById('ayacount').textContent = data.chapter.verses_count;
+            document.getElementById('surahtype').textContent = data.chapter.revelation_place == "makkah" ? "مكية" : "مدنية";
+            document.getElementById('surahorder').textContent = data.chapter.revelation_order;
+            document.getElementById('surahlink').href = `surah.html?id=${data.chapter.id}`
+            document.getElementById('rocketlink').href = `surah.html?id=${data.chapter.id}`
         })
-    MsgRead.style.display = "none";
-    SurahLink.style.display = "block";
+    readMsg.style.display = "none";
+    surahLink.style.display = "block";
 }
 else {
-    SurahLink.style.display = "none";
-    MsgRead.style.display = "block";
-    document.getElementById('progressInfo').style.display = "none"
+    surahLink.style.display = "none";
+    readMsg.style.display = "block";
+    document.getElementById('progressinfo').style.display = "none"
 }
