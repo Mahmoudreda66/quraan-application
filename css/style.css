@@ -179,3 +179,7 @@ a:hover {
         transform: rotate(360deg);
     }
 }
+
+.surah-content{
+    font-size: 20px;
+}
