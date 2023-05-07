@@ -26,7 +26,7 @@ let getCalendar = (lat, long) => {
         .then(data => {
             const apiId = dayLink - 1;
             document.getElementById('weekDay').textContent = `${data.data[apiId].date.hijri.weekday.ar}`
-            document.getElementById('gregDate').innerHTML = `${data.data[apiId].date.readable}`
+            document.getElementById('gregDate').innerHTML = `${data.data[apiId].date.gregorian.date}`
             document.getElementById('hijriDate').innerHTML = `${data.data[apiId].date.hijri.date}`
 
             document.getElementById('elFajr').innerHTML = `${data.data[apiId].timings.Fajr.substring(0, 5)}`
