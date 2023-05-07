@@ -20,11 +20,6 @@ let rosary_counter = localStorage.getItem('rosary_counter') ?? 0,
 rosaryButton.onmousedown = (e) => e.target.classList.remove('shadow');
 rosaryButton.onmouseup = (e) => e.target.classList.add('shadow');
 
-let rosarySound = _ => {
-    let audioEl = new Audio('./../sounds/lclick-13694.mp3');
-    audioEl.play();
-}
-
 let tasabee7Sound = (soundSrc) => {
     let audioEl = new Audio(soundSrc);
 
@@ -48,5 +43,4 @@ rosaryButton.onclick = function () {
     if (interval == 3)
         interval = 0
 
-    rosarySound();
 };
