@@ -41,6 +41,9 @@ rosaryButton.onclick = function () {
     localStorage.setItem('rosary_counter', rosary_counter)
 
     if (interval == 3)
-        interval = 0
+        {
+            interval = 0;
+        }
+            
 
 };
