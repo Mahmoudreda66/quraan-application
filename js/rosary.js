@@ -1,16 +1,16 @@
 let rosary_counter = localStorage.getItem('rosary_counter') ?? 0,
     text_changer = [
         {
-            name: 'الحمد لله',
-            sound: './sounds/rosary/el7amd-llah.mp3'
+            name: 'الله أكبر',
+            sound: './sounds/rosary/allah-akbar.mp3'
         },
         {
             name: 'لا إله إلا الله',
             sound: './sounds/rosary/la-ellah-ela-allah.mp3'
         },
         {
-            name: 'الله أكبر',
-            sound: './sounds/rosary/allah-akbar.mp3'
+            name: 'الحمد لله',
+            sound: './sounds/rosary/el7amd-llah.mp3'
         }
     ],
     interval = 0,
