@@ -27,7 +27,7 @@ let tasabee7Sound = (soundSrc) => {
     audioEl.play();
 }
 
-rosaryButton.textContent = rosary_counter;
+rosaryButton.textContent = (rosary_counter%33);
 
 rosaryButton.onclick = function () {
     rosary_counter++;
@@ -42,7 +42,7 @@ rosaryButton.onclick = function () {
         document.getElementById('33_click_changer').textContent = text_changer[rosary_interval]['name'];
         tasabee7Sound(text_changer[rosary_interval]['sound']);
     }
-    rosaryButton.textContent = rosary_counter;
+    rosaryButton.textContent = (rosary_counter%33);
     localStorage.setItem('rosary_counter', rosary_counter)
     
 };
