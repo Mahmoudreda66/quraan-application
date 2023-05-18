@@ -64,6 +64,7 @@ rosaryReset.onclick = function () {
     localStorage.removeItem('rosary_interval');
     rosary_counter = 0;
     rosary_interval = 0;
+    rosary_first_click = 0;
     rosaryButton.textContent = 0;
     rosary_full_counter.textContent = 0;
     document.getElementById('33_click_changer').textContent = text_changer[0]['name'];
