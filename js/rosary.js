@@ -13,9 +13,14 @@ let rosary_first_click = 0,
         {
             name: 'الحمد لله',
             sound: './sounds/rosary/el7amd-llah.mp3'
+        },
+        {
+            name: 'reset',
+            sound: './sounds/rosary/reset-sound.mp3'
         }
     ],
-    rosaryButton = document.getElementById('rosary-btn');
+    rosaryButton = document.getElementById('rosary-btn'),
+    rosaryReset = document.getElementById('rosary_reset');
 rosary_full_counter = document.getElementById('rosary_full_counter');
 // just rosray animation
 rosaryButton.onmousedown = (e) => e.target.classList.remove('shadow');
@@ -52,4 +57,12 @@ rosaryButton.onclick = function () {
     rosaryButton.textContent = (rosary_counter % 33);
     localStorage.setItem('rosary_counter', rosary_counter)
 
+};
+rosaryReset.onclick = function () {
+    tasabee7Sound(text_changer[3]['sound']);
+    localStorage.clear('rosary_counter');
+    localStorage.clear('rosary_interval');
+    rosaryButton.textContent = 0;
+    rosary_full_counter.textContent = 0;
+    document.getElementById('33_click_changer').textContent = text_changer[0]['name'];
 };
