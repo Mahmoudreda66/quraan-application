@@ -60,8 +60,10 @@ rosaryButton.onclick = function () {
 };
 rosaryReset.onclick = function () {
     tasabee7Sound(text_changer[3]['sound']);
-    localStorage.clear('rosary_counter');
+    localStorage.clear();
     localStorage.clear('rosary_interval');
+    rosary_counter = 0;
+    rosary_interval = 0;
     rosaryButton.textContent = 0;
     rosary_full_counter.textContent = 0;
     document.getElementById('33_click_changer').textContent = text_changer[0]['name'];
