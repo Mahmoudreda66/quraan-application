@@ -8,6 +8,14 @@ let totalHadiths = 700;
 const buttons = document.querySelectorAll(".books button");
 let dataBooksRef = localStorage.getItem("dataBooksRef") || "muslim";
 
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    dataBooksRef = button.getAttribute("data-books");
+    localStorage.setItem("dataBooksRef", dataBooksRef);
+    getHadiths(currentPage);
+  });
+});
+
 function updateActivePageButton() {
   const pageButtons = document.querySelectorAll(
     "#pagination button:not(:first-child):not(:last-child)"
