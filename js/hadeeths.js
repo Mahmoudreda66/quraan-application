@@ -3,21 +3,27 @@ const hadeeths = document.getElementById("hadeeth_content");
 const pagination = document.getElementById("pagination");
 const hadithsPerPage = 30;
 let currentPage = 1;
-let totalHadiths = 300;
+let totalHadiths = 700;
 
 const buttons = document.querySelectorAll(".books button");
-let dataBooksRef = localStorage.getItem("dataBooksRef") || "muslim"; // استرجاع القيمة المخزنة أو تعيين القيمة الافتراضية
+let dataBooksRef = localStorage.getItem("dataBooksRef") || "muslim";
 
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    dataBooksRef = button.getAttribute("data-books");
-    localStorage.setItem("dataBooksRef", dataBooksRef);
+function updateActivePageButton() {
+  const pageButtons = document.querySelectorAll(
+    "#pagination button:not(:first-child):not(:last-child)"
+  );
 
-    getHadiths(currentPage);
+  pageButtons.forEach((button, index) => {
+    if (index + 1 === currentPage) {
+      button.style.backgroundColor = "red";
+    } else {
+      button.style.backgroundColor = "";
+    }
   });
-});
+}
 
 let getHadiths = page => {
+  currentPage = page;
   const startIndex = (page - 1) * hadithsPerPage + 1;
   const endIndex = startIndex + hadithsPerPage - 1;
   let url = `https://api.hadith.gading.dev/books/${dataBooksRef}?range=${startIndex}-${endIndex}`;
@@ -30,55 +36,52 @@ let getHadiths = page => {
       for (let i = 0; i < data.data.hadiths.length; i++) {
         const div = document.createElement("div");
         div.innerHTML = `
-                    <span>${data.data.hadiths[i].arab}</span> <br><br>
-                `;
+          <span>${data.data.hadiths[i].arab}</span> <br><br>
+        `;
         hadeeths.appendChild(div);
       }
 
-      totalHadiths = data.data.total;
-      updatePagination();
+      // totalHadiths = data.data.total;
+      console.log(totalHadiths);
+      updateActivePageButton();
     })
     .catch(error => console.log("error", error));
 };
 
-let updatePagination = () => {
-  pagination.innerHTML = "";
+// -=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
-  const totalPages = Math.ceil(totalHadiths / hadithsPerPage);
-
-  const previousButton = document.createElement("button");
-  previousButton.innerText = "السابق";
-  previousButton.disabled = currentPage === 1;
-  previousButton.addEventListener("click", function() {
-    if (currentPage > 1) {
-      currentPage--;
-      getHadiths(currentPage);
-    }
-  });
-  pagination.appendChild(previousButton);
-
-  for (let i = 1; i <= totalPages; i++) {
-    const button = document.createElement("button");
-    button.innerText = i;
-    button.classList.toggle("active", i === currentPage);
-    button.addEventListener("click", function() {
-      currentPage = i;
-      getHadiths(currentPage);
-    });
-    pagination.appendChild(button);
+const previousButton = document.createElement("button");
+previousButton.innerText = "السابق";
+previousButton.addEventListener("click", () => {
+  if (currentPage > 1) {
+    getHadiths(currentPage - 1);
   }
+});
 
-  const nextButton = document.createElement("button");
-  nextButton.innerText = "التالي";
-  nextButton.disabled = currentPage === totalPages;
-  nextButton.addEventListener("click", function() {
-    if (currentPage < totalPages) {
-      currentPage++;
-      getHadiths(currentPage);
-    }
+const nextButton = document.createElement("button");
+nextButton.innerText = "التالي";
+nextButton.addEventListener("click", () => {
+  let lastPage = Math.ceil(totalHadiths / hadithsPerPage);
+  console.log(lastPage);
+  if (currentPage < lastPage) {
+    getHadiths(currentPage + 1);
+  }
+});
+
+pagination.appendChild(previousButton);
+for (let i = 1; i <= Math.ceil(totalHadiths / hadithsPerPage); i++) {
+  const pageButton = document.createElement("button");
+  pageButton.innerText = i;
+  pageButton.addEventListener("click", () => {
+    getHadiths(i);
   });
-  pagination.appendChild(nextButton);
-};
-// استدعاء الدالة لتحميل المحتوى الأولي عند تحميل الصفحة
+
+  if (i === currentPage) {
+    pageButton.style.backgroundColor = "red";
+  }
+  pagination.appendChild(pageButton);
+}
+
+pagination.appendChild(nextButton);
+
 getHadiths(currentPage);
-updatePagination();

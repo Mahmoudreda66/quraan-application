@@ -183,3 +183,10 @@ a:hover {
 .surah-content {
     font-size: 20px;
 }
+
+.activePageColor{
+    color: red;
+}
+#pagination{
+    user-select: none;
+}
