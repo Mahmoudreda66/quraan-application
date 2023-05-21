@@ -10,10 +10,19 @@ let dataBooksRef = localStorage.getItem("dataBooksRef") || "muslim";
 
 buttons.forEach(button => {
   button.addEventListener("click", () => {
+    location.reload()
     dataBooksRef = button.getAttribute("data-books");
     localStorage.setItem("dataBooksRef", dataBooksRef);
     getHadiths(currentPage);
   });
+});
+console.log(dataBooksRef);
+buttons.forEach(rawybutton => {
+  if (dataBooksRef === rawybutton.getAttribute("data-books")) {
+    rawybutton.style.backgroundColor = "red";
+  } else {
+    rawybutton.style.backgroundColor = "";
+  }
 });
 
 function updateActivePageButton() {
