@@ -184,9 +184,49 @@ a:hover {
     font-size: 20px;
 }
 
-.activePageColor{
+.activePageColor {
     color: red;
 }
-#pagination{
+
+#pagination {
+    -webkit-user-select: none;
     user-select: none;
+}
+
+/*--------------------
+ Back to Top Button
+---------------------*/
+.scrollToTopBtn {
+    background-color: #850f11;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 48px;
+    width: 48px;
+    /* place it at the bottom right corner */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    /* keep it on top of everything else */
+    z-index: 100;
+    /* hide with opacity */
+    opacity: 0;
+    /* also add a translate effect */
+    transform: translateY(100px);
+    /* and a transition */
+    transition: all .5s ease
+}
+
+.showBtn {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+/* ScrollToUp */
+@media screen and (max-width: 800px) {
+    .header-down-arrow {
+        display: none;
+    }
 }

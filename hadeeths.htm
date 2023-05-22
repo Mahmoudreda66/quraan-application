@@ -90,25 +90,27 @@
             </nav>
             <div class="bg-white p-3 rounded mt-5 text-black">
                 <div class="row">
-                    <div class="col-md-6 col-12 mb-3">
+                    <div class="col-lg-12 mb-3">
                         <h1 class="theme-heading">
                             <span>الأحاديث</span>
                             <span></span>
                             <span></span>
                         </h1>
-                        <div class="books mb-3">
-                            <button class="btn text-primary" data-books="muslim">مسلم</button>
-                            <button class="btn text-primary" data-books="bukhari">البخاري</button>
-                            <button class="btn text-primary" data-books="tirmidzi">الترمذي</button>
-                            <button class="btn text-primary" data-books="nasai">النسائي</button>
-                            <button class="btn text-primary" data-books="abu-daud">ابي داوود</button>
-                            <button class="btn text-primary" data-books="ibnu-majah">ابن ماجه</button>
-                            <button class="btn text-primary" data-books="ahmad">احمد</button>
-                            <button class="btn text-primary" data-books="darimi">الدارمي</button>
-                            <button class="btn text-primary" data-books="malik">مالك</button>
+                        <div class="hadeeths_content">
+                            <div class="books mb-4 text-center">
+                                <button class="btn" data-books="muslim">مسلم</button>
+                                <button class="btn" data-books="bukhari">البخاري</button>
+                                <button class="btn" data-books="tirmidzi">الترمذي</button>
+                                <button class="btn" data-books="nasai">النسائي</button>
+                                <button class="btn" data-books="abu-daud">ابي داوود</button>
+                                <button class="btn" data-books="ibnu-majah">ابن ماجه</button>
+                                <button class="btn" data-books="ahmad">احمد</button>
+                                <button class="btn" data-books="darimi">الدارمي</button>
+                                <button class="btn" data-books="malik">مالك</button>
+                            </div>
+                            <div class="hadeeths fs-5" id="hadeeth_content"></div> <!--  -->
+                            <div class="text-center mt-5" id="pagination"></div>
                         </div>
-                        <div class="hadeeths" id="hadeeth_content"></div> <!--  -->
-                        <div id="pagination"></div>
 
                     </div>
                 </div>
@@ -123,6 +125,11 @@
             <i class="fab fa-telegram"></i>
         </div>
     </footer>
+
+
+    <button class="scrollToTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+    
+    <script src="js/ScrollToUp.js"></script>
     <script src="js/hadeeths.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>

@@ -19,7 +19,7 @@ buttons.forEach(button => {
 console.log(dataBooksRef);
 buttons.forEach(rawybutton => {
   if (dataBooksRef === rawybutton.getAttribute("data-books")) {
-    rawybutton.style.backgroundColor = "red";
+    rawybutton.classList.add("border", "border-3", "border-primary", "border-bottom-3", "border-top-0", "border-end-0", "border-start-0", "rounded-0", "fs-4", "text-primary")
   } else {
     rawybutton.style.backgroundColor = "";
   }
@@ -32,9 +32,9 @@ function updateActivePageButton() {
 
   pageButtons.forEach((button, index) => {
     if (index + 1 === currentPage) {
-      button.style.backgroundColor = "red";
+      button.classList.add("border", "border-3", "text-primary", "border-primary", "border-top-0", "border-end-0", "border-start-0", "rounded-0", "fs-4")
     } else {
-      button.style.backgroundColor = "";
+      button.classList.remove("border", "border-3", "text-primary", "border-primary", "border-top-0", "border-end-0", "border-start-0", "rounded-0", "fs-4")
     }
   });
 }
@@ -51,14 +51,13 @@ let getHadiths = page => {
       hadeeths.innerHTML = "";
 
       for (let i = 0; i < data.data.hadiths.length; i++) {
-        const div = document.createElement("div");
-        div.innerHTML = `
+        const hadeethsDiv = document.createElement("div");
+        hadeethsDiv.innerHTML = `
           <span>${data.data.hadiths[i].arab}</span> <br><br>
         `;
-        hadeeths.appendChild(div);
+        hadeethsDiv.classList.add("hadeethsDiv", "pt-5", "border", "border-tertiary", "border-2", "border-top-0", "border-end-0", "border-start-0",)
+        hadeeths.appendChild(hadeethsDiv);
       }
-
-      // totalHadiths = data.data.total;
       console.log(totalHadiths);
       updateActivePageButton();
     })
@@ -69,6 +68,7 @@ let getHadiths = page => {
 
 const previousButton = document.createElement("button");
 previousButton.innerText = "السابق";
+previousButton.classList.add("btn", "border-dark")
 previousButton.addEventListener("click", () => {
   if (currentPage > 1) {
     getHadiths(currentPage - 1);
@@ -77,6 +77,7 @@ previousButton.addEventListener("click", () => {
 
 const nextButton = document.createElement("button");
 nextButton.innerText = "التالي";
+nextButton.classList.add("btn", "border-dark")
 nextButton.addEventListener("click", () => {
   let lastPage = Math.ceil(totalHadiths / hadithsPerPage);
   console.log(lastPage);
@@ -89,16 +90,15 @@ pagination.appendChild(previousButton);
 for (let i = 1; i <= Math.ceil(totalHadiths / hadithsPerPage); i++) {
   const pageButton = document.createElement("button");
   pageButton.innerText = i;
+  pageButton.classList.add("btn")
   pageButton.addEventListener("click", () => {
     getHadiths(i);
   });
 
-  if (i === currentPage) {
-    pageButton.style.backgroundColor = "red";
-  }
   pagination.appendChild(pageButton);
 }
 
 pagination.appendChild(nextButton);
 
 getHadiths(currentPage);
+
