@@ -3,10 +3,20 @@ const hadeeths = document.getElementById("hadeeth_content");
 const pagination = document.getElementById("pagination");
 const hadithsPerPage = 30;
 let currentPage = 1;
-let totalHadiths = 700;
+let totalHadiths = null;
 
 const buttons = document.querySelectorAll(".books button");
 let dataBooksRef = localStorage.getItem("dataBooksRef") || "muslim";
+
+if (dataBooksRef === "muslim") totalHadiths = 4930;
+if (dataBooksRef === "bukhari") totalHadiths = 6638;
+if (dataBooksRef === "tirmidzi") totalHadiths = 3625;
+if (dataBooksRef === "nasai") totalHadiths = 5364;
+if (dataBooksRef === "abu-daud") totalHadiths = 4419;
+if (dataBooksRef === "ibnu-majah") totalHadiths = 4285;
+if (dataBooksRef === "ahmad") totalHadiths = 4305;
+if (dataBooksRef === "darimi") totalHadiths = 2949;
+if (dataBooksRef === "malik") totalHadiths = 1587;
 
 buttons.forEach(button => {
   button.addEventListener("click", () => {
@@ -59,6 +69,7 @@ let getHadiths = page => {
         hadeeths.appendChild(hadeethsDiv);
       }
       console.log(totalHadiths);
+      console.table(data);
       updateActivePageButton();
     })
     .catch(error => console.log("error", error));
@@ -74,6 +85,17 @@ previousButton.addEventListener("click", () => {
     getHadiths(currentPage - 1);
   }
 });
+pagination.appendChild(previousButton);
+
+for (let i = 1; i <= (Math.ceil(totalHadiths / hadithsPerPage)) - 1; i++) {
+  const pageButton = document.createElement("button");
+  pageButton.innerText = i;
+  pageButton.classList.add("btn")
+  pageButton.addEventListener("click", () => {
+    getHadiths(i);
+  });
+  pagination.appendChild(pageButton);
+}
 
 const nextButton = document.createElement("button");
 nextButton.innerText = "التالي";
@@ -85,19 +107,6 @@ nextButton.addEventListener("click", () => {
     getHadiths(currentPage + 1);
   }
 });
-
-pagination.appendChild(previousButton);
-for (let i = 1; i <= Math.ceil(totalHadiths / hadithsPerPage); i++) {
-  const pageButton = document.createElement("button");
-  pageButton.innerText = i;
-  pageButton.classList.add("btn")
-  pageButton.addEventListener("click", () => {
-    getHadiths(i);
-  });
-
-  pagination.appendChild(pageButton);
-}
-
 pagination.appendChild(nextButton);
 
 getHadiths(currentPage);
