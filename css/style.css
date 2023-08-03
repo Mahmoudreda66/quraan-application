@@ -193,11 +193,8 @@ a:hover {
     user-select: none;
 }
 
-/*--------------------
- Back to Top Button
----------------------*/
 .scrollToTopBtn {
-    background-color: #850f11;
+    background-color: #4680fd;
     border: none;
     border-radius: 50%;
     color: white;
@@ -205,17 +202,12 @@ a:hover {
     font-size: 30px;
     line-height: 48px;
     width: 48px;
-    /* place it at the bottom right corner */
     position: fixed;
     bottom: 30px;
     right: 30px;
-    /* keep it on top of everything else */
     z-index: 100;
-    /* hide with opacity */
     opacity: 0;
-    /* also add a translate effect */
     transform: translateY(100px);
-    /* and a transition */
     transition: all .5s ease
 }
 
