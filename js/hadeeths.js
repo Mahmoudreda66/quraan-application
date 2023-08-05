@@ -52,33 +52,64 @@ function updateActivePageButton() {
   );
 
   pageButtons.forEach((button, index) => {
+    const classesStyle1 = [
+      "border",
+      "border-3",
+      "text-primary",
+      "border-primary",
+      "border-top-0",
+      "border-end-0",
+      "border-start-0",
+      "rounded-0",
+      "fs-4",
+    ];
     if (index + 1 === currentPage) {
-      button.classList.add(
-        "border",
-        "border-3",
-        "text-primary",
-        "border-primary",
-        "border-top-0",
-        "border-end-0",
-        "border-start-0",
-        "rounded-0",
-        "fs-4"
-      );
+      button.classList.add(...classesStyle1);
     } else {
-      button.classList.remove(
-        "border",
-        "border-3",
-        "text-primary",
-        "border-primary",
-        "border-top-0",
-        "border-end-0",
-        "border-start-0",
-        "rounded-0",
-        "fs-4"
-      );
+      button.classList.remove(...classesStyle1);
     }
   });
 }
+
+const textToVoice = (arabicText) => {
+  const speech = new SpeechSynthesisUtterance();
+  speech.lang = "ar";
+  speech.text = arabicText;
+
+  const setVoice = () => {
+    const voices = window.speechSynthesis.getVoices();
+    const hodaVoice = voices.find(
+      (voice) => voice.name === "Microsoft Hoda - Arabic (Egypt)"
+    );
+    speech.voice = hodaVoice;
+    window.speechSynthesis.speak(speech);
+  };
+
+  window.speechSynthesis.getVoices().length !== 0
+    ? setVoice()
+    : window.speechSynthesis.addEventListener("voiceschanged", setVoice);
+};
+
+const stopSpeech = () => {
+  window.speechSynthesis.cancel();
+};
+const stopVoiceBtnElement = document.createElement("button");
+stopVoiceBtnElement.classList.add(
+  "stopVoiceBtn",
+  "fixed-bottom",
+  "btn",
+  "bg-dark",
+  "text-primary"
+);
+stopVoiceBtnElement.textContent = "ايقاف";
+document.body.appendChild(stopVoiceBtnElement);
+
+const stopVoiceBtn = document.querySelector(".stopVoiceBtn");
+stopVoiceBtn.style.display = "none";
+stopVoiceBtn.addEventListener("click", () => {
+  stopSpeech();
+  stopVoiceBtn.style.display = "none";
+});
 
 let getHadiths = (page) => {
   currentPage = page;
@@ -94,7 +125,7 @@ let getHadiths = (page) => {
       for (let i = 0; i < data.data.hadiths.length; i++) {
         const hadeethsDiv = document.createElement("div");
         hadeethsDiv.innerHTML = `
-          <span>${data.data.hadiths[i].arab}</span> <br><br>
+          <span class="hadeeth_span">${data.data.hadiths[i].arab}</span> <br><br>
         `;
         hadeethsDiv.classList.add(
           "hadeethsDiv",
@@ -107,6 +138,21 @@ let getHadiths = (page) => {
           "border-start-0"
         );
         hadeeths.appendChild(hadeethsDiv);
+        const voiceBtnElement = document.createElement("button");
+        voiceBtnElement.classList.add(
+          "voiceBtn",
+          "fs-6",
+          "text-primary",
+          "btn"
+        );
+        voiceBtnElement.textContent = "استمع";
+        hadeethsDiv.insertAdjacentElement("beforeend", voiceBtnElement);
+
+        voiceBtnElement.addEventListener("click", () => {
+          stopVoiceBtn.style.display = "block";
+          const arabicText = data.data.hadiths[i].arab;
+          textToVoice(arabicText);
+        });
       }
       console.log(totalHadiths);
       console.table(data);
@@ -114,6 +160,9 @@ let getHadiths = (page) => {
     })
     .catch((error) => console.log("error", error));
 };
+window.addEventListener("beforeunload", () => {
+  stopSpeech();
+});
 
 // -=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
