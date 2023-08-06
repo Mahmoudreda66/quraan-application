@@ -9,10 +9,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "vercel": "^31.2.2"
-  }
+  "license": "ISC"
 }
