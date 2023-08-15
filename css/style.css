@@ -252,3 +252,31 @@ a:hover {
         display: none;
     }
 }
+
+/* fadeInDown */
+.animated-element-fadeInDown {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 1s forwards;
+}
+
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* sticky navBar */
+.stickyNavBar {
+    position: fixed;
+    background-color: #17144e;
+    width: 100%;
+    top: 0;
+    right: 0;
+    transform: translate(-50% -50%);
+}
+
+.transition {
+    transition: 2s;
+}
