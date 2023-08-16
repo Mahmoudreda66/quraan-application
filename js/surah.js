@@ -154,11 +154,11 @@ audioPlayer.querySelector(".volume-button").addEventListener("click", () => {
   const volumeEl = audioPlayer.querySelector(".volume-container .volume");
   audio.muted = !audio.muted;
   if (audio.muted) {
-    volumeEl.classList.remove("icono-volumeMedium");
-    volumeEl.classList.add("icono-volumeMute");
+    volumeEl.classList.remove("fa-volume-high");
+    volumeEl.classList.add("fa-volume-xmark");
   } else {
-    volumeEl.classList.add("icono-volumeMedium");
-    volumeEl.classList.remove("icono-volumeMute");
+    volumeEl.classList.add("fa-volume-high");
+    volumeEl.classList.remove("fa-volume-xmark");
   }
 });
 
