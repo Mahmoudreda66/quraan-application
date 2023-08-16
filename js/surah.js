@@ -74,7 +74,7 @@ async function fetchData() {
         recitation = ele.recitation.full;
         document.querySelector(".surahNameAudio").textContent =
           ele.asma.ar.long;
-          console.log(ele);
+        console.log(ele);
       }
     }
   } catch (error) {
