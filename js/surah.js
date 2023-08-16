@@ -50,7 +50,6 @@ const surah = fetch(
 
     const lastVerse = document.createElement("span");
     lastVerse.textContent = data.verses[data.verses.length - 1].text_uthmani;
-    surah_content.appendChild(lastVerse);
   });
 
 localStorage.setItem("Progress", url.get("id"));
