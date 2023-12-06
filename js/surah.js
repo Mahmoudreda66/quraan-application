@@ -56,10 +56,20 @@ localStorage.setItem("Progress", url.get("id"));
 
 // audio player =======================================================
 // other api https://alquran.cloud/cdn
+// abd el-baset abd-elsamad endpoint: https://api.quran.com/api/v4/chapter_recitations/1
 
 const idSurah = +url.get("id");
 console.log(idSurah);
 let recitation;
+
+let getAudioQuran = async (chapterID) => {
+  const response = await fetch(
+    `https://api.quran.com/api/v4/chapter_recitations/1?chapter_id=${chapterID}`
+  );
+  const data = await response.json();
+  console.log(data.audio_files[0].audio_url);
+  return data.audio_files[0].audio_url;
+};
 
 async function fetchData() {
   try {
@@ -72,10 +82,11 @@ async function fetchData() {
     const data = await response.json();
     for (ele of data.data) {
       if (ele.number === idSurah) {
-        recitation = ele.recitation.full;
         document.querySelector(".surahNameAudio").textContent =
           ele.asma.ar.long;
         console.log(ele);
+        recitation = await getAudioQuran(idSurah);
+        console.log(recitation);
       }
     }
   } catch (error) {
