@@ -55,6 +55,7 @@ const surah = fetch(
 localStorage.setItem("Progress", url.get("id"));
 
 // audio player =======================================================
+// other api https://alquran.cloud/cdn
 
 const idSurah = +url.get("id");
 console.log(idSurah);
